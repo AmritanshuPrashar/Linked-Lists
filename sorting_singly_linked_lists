@@ -1,0 +1,70 @@
+
+#include <stdio.h>
+#include <stdlib.h>
+
+struct node {
+    int data;
+    struct node *next;
+    
+};
+
+int main() {
+    int trash;
+struct node *head;
+struct node *first;
+struct node *second;
+struct node *third;
+struct node *fourth;
+struct node *post,*pre;
+
+first=malloc(sizeof(struct node));
+second=malloc(sizeof(struct node));
+third=malloc(sizeof(struct node));
+fourth=malloc(sizeof(struct node));
+
+first->next=second;
+second->next=third;
+third->next=fourth;
+fourth->next=NULL;
+head=first;
+printf("Enter first element\n");
+scanf("%d",&first->data);
+printf("Enter second element\n");
+scanf("%d",&second->data);
+printf("Enter third element\n");
+scanf("%d",&third->data);
+printf("Enter fourth element\n");
+scanf("%d",&fourth->data);
+
+printf("\n---------------------------------------------\n");
+printf("Entered Linked List: ");
+struct node *temp=head;
+
+while(temp!=NULL){
+    printf("%d ",temp->data);
+temp=temp->next;    
+}
+
+pre=head;
+
+while(pre->next!=NULL){
+    post=pre->next;
+    while(post!=NULL){
+        if(post->data<pre->data){
+        trash=pre->data;
+        pre->data=post->data;
+        post->data=trash;}
+        
+       post=post->next; 
+    }
+    
+    pre=pre->next;
+}
+printf("\n Sorted Linked List: ");
+while(head!=NULL){
+    printf("%d ",head->data);
+head=head->next;    
+}
+
+    return 0;
+}
