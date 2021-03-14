@@ -1,0 +1,92 @@
+                                                                            INSERTION IN SINGLY LINKED LIST
+#include <stdio.h>
+#include<stdlib.h>
+struct node {
+    int value;
+    struct node *next;
+
+};
+
+int main() {
+    int pos;
+  struct node *head;
+    struct node *first;
+    struct node *second;
+    struct node *third;
+    struct node *avail;
+    
+    
+    first=malloc(sizeof(struct node));
+   second=malloc(sizeof(struct node));  
+     third=malloc(sizeof(struct node));
+     avail=malloc(sizeof(struct node));
+     
+     
+     first->value=41;
+     second->value=20;
+     third->value=75;
+     
+     first->next=second;
+     second->next=third;
+     third->next=NULL;
+     head=first;
+     printf("Linked List : ");
+      struct node *temp1=head;
+     while(temp1!=NULL){
+         
+         printf("%d ",temp1->value);
+         temp1=temp1->next;
+     }
+     printf("\nEnter position at which you want to insert element 1(first),2(center),3(third) :");
+     scanf("%d",&pos);
+     if(pos==1){
+         printf("Enter value of element : ");
+         scanf("%d",&avail->value);
+         struct node *temp2=head;
+         avail->next=temp2;
+         temp2=avail;
+         
+     
+         printf("New Linked List : ");
+        while(temp2!=NULL){
+     
+         printf("%d ",temp2->value);
+         temp2=temp2->next;
+     }
+     }
+     if(pos==3){
+         struct node *temp4;
+         temp4=head;
+       printf("Enter value of element : ");
+         scanf("%d",&avail->value);
+         avail->next=NULL;
+          while(temp4->next!=NULL){
+     
+         temp4=temp4->next;
+     }
+     temp4->next=avail;
+        struct node *temp5=head;
+       printf("New Linked List : ");
+        while(temp5!=NULL){
+     
+         printf("%d ",temp5->value);
+         temp5=temp5->next;
+     }   
+     }
+     if(pos==2){
+         struct node *temp6=head;
+           struct node *temp7=head;
+             printf("Enter value of element : ");
+         scanf("%d",&avail->value);
+             avail->next=temp6->next->next;
+         temp6->next->next=avail;
+     printf("New Linked List : ");
+        while(temp7!=NULL){
+     
+         printf("%d ",temp7->value);
+         temp7=temp7->next;
+     }   
+         
+     }
+    return 0;
+}
